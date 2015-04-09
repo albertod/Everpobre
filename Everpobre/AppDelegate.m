@@ -7,8 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "AGTCoreDataStack.h"
+#import "ADMNotebook.h"
+#import "ADMNote.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic,strong) AGTCoreDataStack *stack;
 
 @end
 
@@ -16,6 +21,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    //Create isntance of the stack
+    self.stack = [AGTCoreDataStack coreDataStackWithModelName:@"Model"];
+    
+    [self dummyData];
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -43,6 +55,16 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void) dummyData{
+    
+    
+    ADMNotebook *exs = [ADMNotebook notebookWithName:@"Ex-novias" context:self.stack.context];
+    ADMNote *note = [ADMNote noteWithName:@"Mariana" notebook:exs context:self.stack.context];
+
+     NSLog(@"Libreta%@",exs);
+    NSLog(@"nota%@",note);
 }
 
 @end
