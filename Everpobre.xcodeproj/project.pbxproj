@@ -21,6 +21,10 @@
 		D391168D1AD74BA500BD1EE6 /* _ADMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = D39116891AD74BA500BD1EE6 /* _ADMNote.m */; };
 		D391168E1AD74BA500BD1EE6 /* _ADMNotebook.m in Sources */ = {isa = PBXBuildFile; fileRef = D391168A1AD74BA500BD1EE6 /* _ADMNotebook.m */; };
 		D391168F1AD74BA500BD1EE6 /* _ADMPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = D391168C1AD74BA500BD1EE6 /* _ADMPhoto.m */; };
+		D39116931AD7591D00BD1EE6 /* AGTCoreDataCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D39116921AD7591D00BD1EE6 /* AGTCoreDataCollectionViewController.m */; };
+		D39116961AD7598700BD1EE6 /* AGTCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D39116951AD7598700BD1EE6 /* AGTCoreDataTableViewController.m */; };
+		D39116991AD75AD600BD1EE6 /* ADMNotebooksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D39116981AD75AD600BD1EE6 /* ADMNotebooksViewController.m */; };
+		D391169C1AD7AE6800BD1EE6 /* UIViewController+Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = D391169B1AD7AE6800BD1EE6 /* UIViewController+Navigation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,14 @@
 		D391168A1AD74BA500BD1EE6 /* _ADMNotebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _ADMNotebook.m; path = Everpobre/_ADMNotebook.m; sourceTree = "<group>"; };
 		D391168B1AD74BA500BD1EE6 /* _ADMPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _ADMPhoto.h; path = Everpobre/_ADMPhoto.h; sourceTree = "<group>"; };
 		D391168C1AD74BA500BD1EE6 /* _ADMPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _ADMPhoto.m; path = Everpobre/_ADMPhoto.m; sourceTree = "<group>"; };
+		D39116911AD7591D00BD1EE6 /* AGTCoreDataCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataCollectionViewController.h; sourceTree = SOURCE_ROOT; };
+		D39116921AD7591D00BD1EE6 /* AGTCoreDataCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataCollectionViewController.m; sourceTree = SOURCE_ROOT; };
+		D39116941AD7598700BD1EE6 /* AGTCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataTableViewController.h; sourceTree = SOURCE_ROOT; };
+		D39116951AD7598700BD1EE6 /* AGTCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataTableViewController.m; sourceTree = SOURCE_ROOT; };
+		D39116971AD75AD600BD1EE6 /* ADMNotebooksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADMNotebooksViewController.h; sourceTree = "<group>"; };
+		D39116981AD75AD600BD1EE6 /* ADMNotebooksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMNotebooksViewController.m; sourceTree = "<group>"; };
+		D391169A1AD7AE6800BD1EE6 /* UIViewController+Navigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Navigation.h"; sourceTree = "<group>"; };
+		D391169B1AD7AE6800BD1EE6 /* UIViewController+Navigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Navigation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +96,6 @@
 		D37D581E1AD47961006492F4 = {
 			isa = PBXGroup;
 			children = (
-				D37D584D1AD47ACB006492F4 /* Models */,
 				D37D58291AD47961006492F4 /* Everpobre */,
 				D37D583D1AD47961006492F4 /* EverpobreTests */,
 				D37D58281AD47961006492F4 /* Products */,
@@ -103,6 +114,9 @@
 		D37D58291AD47961006492F4 /* Everpobre */ = {
 			isa = PBXGroup;
 			children = (
+				D391169D1AD7AE7400BD1EE6 /* Categories */,
+				D37D584D1AD47ACB006492F4 /* Models */,
+				D39116901AD758EC00BD1EE6 /* Controls */,
 				D37D582E1AD47961006492F4 /* AppDelegate.h */,
 				D37D582F1AD47961006492F4 /* AppDelegate.m */,
 				D37D58311AD47961006492F4 /* Images.xcassets */,
@@ -155,6 +169,7 @@
 				D388163F1AD6FE41000FEDC8 /* ADMEverpobreBaseClass.m */,
 			);
 			name = Models;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		D37D586F1AD49112006492F4 /* Machine */ = {
@@ -168,6 +183,28 @@
 				D391168C1AD74BA500BD1EE6 /* _ADMPhoto.m */,
 			);
 			name = Machine;
+			sourceTree = "<group>";
+		};
+		D39116901AD758EC00BD1EE6 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				D39116941AD7598700BD1EE6 /* AGTCoreDataTableViewController.h */,
+				D39116951AD7598700BD1EE6 /* AGTCoreDataTableViewController.m */,
+				D39116911AD7591D00BD1EE6 /* AGTCoreDataCollectionViewController.h */,
+				D39116921AD7591D00BD1EE6 /* AGTCoreDataCollectionViewController.m */,
+				D39116971AD75AD600BD1EE6 /* ADMNotebooksViewController.h */,
+				D39116981AD75AD600BD1EE6 /* ADMNotebooksViewController.m */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
+		D391169D1AD7AE7400BD1EE6 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D391169A1AD7AE6800BD1EE6 /* UIViewController+Navigation.h */,
+				D391169B1AD7AE6800BD1EE6 /* UIViewController+Navigation.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,12 +308,16 @@
 			files = (
 				D37D586D1AD49100006492F4 /* ADMNotebook.m in Sources */,
 				D391168E1AD74BA500BD1EE6 /* _ADMNotebook.m in Sources */,
+				D39116931AD7591D00BD1EE6 /* AGTCoreDataCollectionViewController.m in Sources */,
 				D37D586E1AD49100006492F4 /* ADMPhoto.m in Sources */,
 				D37D58301AD47961006492F4 /* AppDelegate.m in Sources */,
 				D38816401AD6FE41000FEDC8 /* ADMEverpobreBaseClass.m in Sources */,
+				D391169C1AD7AE6800BD1EE6 /* UIViewController+Navigation.m in Sources */,
 				D37D58D91AD5AD50006492F4 /* AGTCoreDataStack.m in Sources */,
 				D391168D1AD74BA500BD1EE6 /* _ADMNote.m in Sources */,
+				D39116961AD7598700BD1EE6 /* AGTCoreDataTableViewController.m in Sources */,
 				D391168F1AD74BA500BD1EE6 /* _ADMPhoto.m in Sources */,
+				D39116991AD75AD600BD1EE6 /* ADMNotebooksViewController.m in Sources */,
 				D37D582D1AD47961006492F4 /* main.m in Sources */,
 				D37D586C1AD49100006492F4 /* ADMNote.m in Sources */,
 				D37D584C1AD47ABC006492F4 /* Model.xcdatamodeld in Sources */,

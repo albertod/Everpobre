@@ -10,6 +10,8 @@
 #import "AGTCoreDataStack.h"
 #import "ADMNotebook.h"
 #import "ADMNote.h"
+#import "ADMNotebooksViewController.h"
+#import "UIViewController+Navigation.h"
 
 @interface AppDelegate ()
 
@@ -27,13 +29,44 @@
     
     [self dummyData];
     
+    //create fetch request
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ADMNotebook entityName]];
+    req.sortDescriptors =  @[[NSSortDescriptor
+                             sortDescriptorWithKey:ADMNotebookAttributes.name
+                             ascending:YES
+                             selector:@selector(caseInsensitiveCompare:)],
+                            [NSSortDescriptor
+                             sortDescriptorWithKey:ADMNotebookAttributes.modificationDate
+                                                          ascending:NO]]; //No ascending becuase we want the more recent first
+    
+    req.fetchBatchSize = 20;
+    
+    //fetch result controler
+    NSFetchedResultsController *fc = [[NSFetchedResultsController alloc]
+                                      initWithFetchRequest:req
+                                      managedObjectContext:self.stack.context
+                                      sectionNameKeyPath:nil
+                                      cacheName:nil];
+    
+    //creta e acontroler
+    ADMNotebooksViewController *nVC = [[ADMNotebooksViewController alloc]
+                                       initWithFetchedResultsController:fc style:UITableViewStylePlain];
+    
+
+    
+    
+    //Categories: very util to expand and anvoid repetition of code
+    //it is a way to add methods to a class pre-existent
+
+    
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+   
+    self.window.rootViewController = [nVC wrappedInNavigation];
     [self.window makeKeyAndVisible];
-    
-    self.window.rootViewController = [UINavigationController new];
+  
     return YES;
 }
 
@@ -90,10 +123,10 @@
     
     //How sort () how sort, by witch criteria
     req.sortDescriptors = @[[NSSortDescriptor
-                             sortDescriptorWithKey:ADMNotebookAttributes.name
+                             sortDescriptorWithKey:ADMNoteAttributes.name
                              ascending:YES
                              selector:@selector(caseInsensitiveCompare:)],
-                            [NSSortDescriptor sortDescriptorWithKey:ADMNotebookAttributes.modificationDate
+                            [NSSortDescriptor sortDescriptorWithKey:ADMNoteAttributes.modificationDate
                                                           ascending:NO]]; //No ascending becuase we want the more recent first
     
     //Limit of result you want from a fetch search
