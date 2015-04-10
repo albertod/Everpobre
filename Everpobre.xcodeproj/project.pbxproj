@@ -13,14 +13,14 @@
 		D37D58351AD47961006492F4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D37D58331AD47961006492F4 /* LaunchScreen.xib */; };
 		D37D58411AD47961006492F4 /* EverpobreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D37D58401AD47961006492F4 /* EverpobreTests.m */; };
 		D37D584C1AD47ABC006492F4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D37D584A1AD47ABC006492F4 /* Model.xcdatamodeld */; };
-		D37D58691AD49100006492F4 /* _ADMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = D37D585E1AD49100006492F4 /* _ADMNote.m */; };
-		D37D586A1AD49100006492F4 /* _ADMNotebook.m in Sources */ = {isa = PBXBuildFile; fileRef = D37D58601AD49100006492F4 /* _ADMNotebook.m */; };
-		D37D586B1AD49100006492F4 /* _ADMPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = D37D58621AD49100006492F4 /* _ADMPhoto.m */; };
 		D37D586C1AD49100006492F4 /* ADMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = D37D58641AD49100006492F4 /* ADMNote.m */; };
 		D37D586D1AD49100006492F4 /* ADMNotebook.m in Sources */ = {isa = PBXBuildFile; fileRef = D37D58661AD49100006492F4 /* ADMNotebook.m */; };
 		D37D586E1AD49100006492F4 /* ADMPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = D37D58681AD49100006492F4 /* ADMPhoto.m */; };
 		D37D58D91AD5AD50006492F4 /* AGTCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D37D58D81AD5AD50006492F4 /* AGTCoreDataStack.m */; };
 		D38816401AD6FE41000FEDC8 /* ADMEverpobreBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D388163F1AD6FE41000FEDC8 /* ADMEverpobreBaseClass.m */; };
+		D391168D1AD74BA500BD1EE6 /* _ADMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = D39116891AD74BA500BD1EE6 /* _ADMNote.m */; };
+		D391168E1AD74BA500BD1EE6 /* _ADMNotebook.m in Sources */ = {isa = PBXBuildFile; fileRef = D391168A1AD74BA500BD1EE6 /* _ADMNotebook.m */; };
+		D391168F1AD74BA500BD1EE6 /* _ADMPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = D391168C1AD74BA500BD1EE6 /* _ADMPhoto.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,12 +45,6 @@
 		D37D583F1AD47961006492F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D37D58401AD47961006492F4 /* EverpobreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EverpobreTests.m; sourceTree = "<group>"; };
 		D37D584B1AD47ABC006492F4 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		D37D585D1AD49100006492F4 /* _ADMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _ADMNote.h; path = Everpobre/_ADMNote.h; sourceTree = "<group>"; };
-		D37D585E1AD49100006492F4 /* _ADMNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _ADMNote.m; path = Everpobre/_ADMNote.m; sourceTree = "<group>"; };
-		D37D585F1AD49100006492F4 /* _ADMNotebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _ADMNotebook.h; path = Everpobre/_ADMNotebook.h; sourceTree = "<group>"; };
-		D37D58601AD49100006492F4 /* _ADMNotebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _ADMNotebook.m; path = Everpobre/_ADMNotebook.m; sourceTree = "<group>"; };
-		D37D58611AD49100006492F4 /* _ADMPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _ADMPhoto.h; path = Everpobre/_ADMPhoto.h; sourceTree = "<group>"; };
-		D37D58621AD49100006492F4 /* _ADMPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _ADMPhoto.m; path = Everpobre/_ADMPhoto.m; sourceTree = "<group>"; };
 		D37D58631AD49100006492F4 /* ADMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADMNote.h; path = Everpobre/ADMNote.h; sourceTree = "<group>"; };
 		D37D58641AD49100006492F4 /* ADMNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADMNote.m; path = Everpobre/ADMNote.m; sourceTree = "<group>"; };
 		D37D58651AD49100006492F4 /* ADMNotebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADMNotebook.h; path = Everpobre/ADMNotebook.h; sourceTree = "<group>"; };
@@ -61,6 +55,12 @@
 		D37D58D81AD5AD50006492F4 /* AGTCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataStack.m; sourceTree = "<group>"; };
 		D388163E1AD6FE41000FEDC8 /* ADMEverpobreBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADMEverpobreBaseClass.h; sourceTree = "<group>"; };
 		D388163F1AD6FE41000FEDC8 /* ADMEverpobreBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMEverpobreBaseClass.m; sourceTree = "<group>"; };
+		D39116871AD74BA500BD1EE6 /* _ADMNotebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _ADMNotebook.h; path = Everpobre/_ADMNotebook.h; sourceTree = "<group>"; };
+		D39116881AD74BA500BD1EE6 /* _ADMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _ADMNote.h; path = Everpobre/_ADMNote.h; sourceTree = "<group>"; };
+		D39116891AD74BA500BD1EE6 /* _ADMNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _ADMNote.m; path = Everpobre/_ADMNote.m; sourceTree = "<group>"; };
+		D391168A1AD74BA500BD1EE6 /* _ADMNotebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _ADMNotebook.m; path = Everpobre/_ADMNotebook.m; sourceTree = "<group>"; };
+		D391168B1AD74BA500BD1EE6 /* _ADMPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _ADMPhoto.h; path = Everpobre/_ADMPhoto.h; sourceTree = "<group>"; };
+		D391168C1AD74BA500BD1EE6 /* _ADMPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _ADMPhoto.m; path = Everpobre/_ADMPhoto.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,12 +160,12 @@
 		D37D586F1AD49112006492F4 /* Machine */ = {
 			isa = PBXGroup;
 			children = (
-				D37D585D1AD49100006492F4 /* _ADMNote.h */,
-				D37D585E1AD49100006492F4 /* _ADMNote.m */,
-				D37D585F1AD49100006492F4 /* _ADMNotebook.h */,
-				D37D58601AD49100006492F4 /* _ADMNotebook.m */,
-				D37D58611AD49100006492F4 /* _ADMPhoto.h */,
-				D37D58621AD49100006492F4 /* _ADMPhoto.m */,
+				D39116871AD74BA500BD1EE6 /* _ADMNotebook.h */,
+				D39116881AD74BA500BD1EE6 /* _ADMNote.h */,
+				D39116891AD74BA500BD1EE6 /* _ADMNote.m */,
+				D391168A1AD74BA500BD1EE6 /* _ADMNotebook.m */,
+				D391168B1AD74BA500BD1EE6 /* _ADMPhoto.h */,
+				D391168C1AD74BA500BD1EE6 /* _ADMPhoto.m */,
 			);
 			name = Machine;
 			sourceTree = "<group>";
@@ -269,14 +269,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D37D586A1AD49100006492F4 /* _ADMNotebook.m in Sources */,
 				D37D586D1AD49100006492F4 /* ADMNotebook.m in Sources */,
-				D37D586B1AD49100006492F4 /* _ADMPhoto.m in Sources */,
+				D391168E1AD74BA500BD1EE6 /* _ADMNotebook.m in Sources */,
 				D37D586E1AD49100006492F4 /* ADMPhoto.m in Sources */,
 				D37D58301AD47961006492F4 /* AppDelegate.m in Sources */,
 				D38816401AD6FE41000FEDC8 /* ADMEverpobreBaseClass.m in Sources */,
-				D37D58691AD49100006492F4 /* _ADMNote.m in Sources */,
 				D37D58D91AD5AD50006492F4 /* AGTCoreDataStack.m in Sources */,
+				D391168D1AD74BA500BD1EE6 /* _ADMNote.m in Sources */,
+				D391168F1AD74BA500BD1EE6 /* _ADMPhoto.m in Sources */,
 				D37D582D1AD47961006492F4 /* main.m in Sources */,
 				D37D586C1AD49100006492F4 /* ADMNote.m in Sources */,
 				D37D584C1AD47ABC006492F4 /* Model.xcdatamodeld in Sources */,

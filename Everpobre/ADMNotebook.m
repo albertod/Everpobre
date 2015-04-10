@@ -26,15 +26,14 @@
     return nb;
 }
 
--(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+-(void) observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context{
     
     self.modificationDate = [NSDate date];
     
 }
-
-
-
-
 
 
 @end

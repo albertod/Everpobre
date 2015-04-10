@@ -32,6 +32,8 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    self.window.rootViewController = [UINavigationController new];
     return YES;
 }
 
@@ -59,12 +61,74 @@
 
 -(void) dummyData{
     
+    //Delete all data previos data
+    [self.stack zapAllData];
     
+    // Creamos nuevos objectos
     ADMNotebook *exs = [ADMNotebook notebookWithName:@"Ex-novias" context:self.stack.context];
-    ADMNote *note = [ADMNote noteWithName:@"Mariana" notebook:exs context:self.stack.context];
 
-     NSLog(@"Libreta%@",exs);
-    NSLog(@"nota%@",note);
+    [ADMNote noteWithName:@"mariana Davalos"
+                 notebook:exs
+                  context:self.stack.context];
+    
+    [ADMNote noteWithName:@"Camila Davalos"
+                 notebook:exs
+                  context:self.stack.context];
+    
+    [ADMNote noteWithName:@"Pampita"
+                 notebook:exs
+                  context:self.stack.context];
+   
+    ADMNote *vega = [ADMNote noteWithName:@"Maria teresa"
+                 notebook:exs
+                  context:self.stack.context];
+    
+    NSLog(@"Una Nota: %@",vega);
+    
+    //Buscar en CoreData --> we need an NSFeetchRequst object
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ADMNote entityName]];
+    
+    //How sort () how sort, by witch criteria
+    req.sortDescriptors = @[[NSSortDescriptor
+                             sortDescriptorWithKey:ADMNotebookAttributes.name
+                             ascending:YES
+                             selector:@selector(caseInsensitiveCompare:)],
+                            [NSSortDescriptor sortDescriptorWithKey:ADMNotebookAttributes.modificationDate
+                                                          ascending:NO]]; //No ascending becuase we want the more recent first
+    
+    //Limit of result you want from a fetch search
+    //req.fetchLimit = THE SIZE
+    
+    
+    //the batch size of the receive
+    //The chunk size you want to see
+    req.fetchBatchSize = 20;
+    
+    //We need a predicat , that is an isntance of the NSpredicate to use it as a filter, all the elements that pass the filter, go to the array --> similar to SWL "where"
+    
+    req.predicate = [NSPredicate predicateWithFormat:@"notebook = %@",exs]; //all the notes that belong to the book exs will pass the filter
+    
+    //Execute the fetch request--> dont preocupate about erorr, hanldled by the mehtodf
+    NSArray *results = [self.stack executeFetchRequest:req
+                                            errorBlock:^(NSError *error) {
+                                                NSLog(@"Error al buscar %@",error);
+   
+                                        }];
+    
+    //print the results from the fetch
+    //this NSarray is not an array, you can check by po [results class] all of its object are not in memory
+    //This is to save memory (It wont make senesor to have a 2M result array on memory for example)
+    NSLog(@"Notes: %@",results);
+    
+    //hoe to deleta an object
+    [self.stack.context deleteObject:vega];
+    
+    //Now save the chages that we made
+    [self.stack saveWithErrorBlock:^(NSError *error) {
+        NSLog(@"Error when saving %@", error);
+    }];
+    
+    
 }
 
 @end
