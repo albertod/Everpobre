@@ -1,4 +1,5 @@
 #import "_ADMNote.h"
+#import "ADMPhoto.h"
 
 @interface ADMNote : _ADMNote {}
 

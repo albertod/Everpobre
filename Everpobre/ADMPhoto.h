@@ -4,6 +4,6 @@
 
 @interface ADMPhoto : _ADMPhoto {}
 
-
+@property (strong,nonatomic) UIImage *image;
 
 @end
