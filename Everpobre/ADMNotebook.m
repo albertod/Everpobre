@@ -9,14 +9,14 @@
 @implementation ADMNotebook
 
 
+#pragma mark - Class Methods
 +(NSArray *) observableKeys{
-    
-    return @[ADMNotebookAttributes.name , ADMNotebookRelationships.notes];
+    return @[ADMNotebookAttributes.name, ADMNotebookRelationships.notes];
 }
 
-
-+(instancetype) notebookWithName:(NSString *)name
++(instancetype) notebookWithName:(NSString *) name
                          context:(NSManagedObjectContext *) context{
+    
     
     ADMNotebook *nb = [self insertInManagedObjectContext:context];
     nb.name = name;
@@ -26,14 +26,16 @@
     return nb;
 }
 
+
+#pragma mark - KVO
 -(void) observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
                         change:(NSDictionary *)change
                        context:(void *)context{
     
     self.modificationDate = [NSDate date];
-    
 }
+
 
 
 @end

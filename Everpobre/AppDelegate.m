@@ -12,6 +12,8 @@
 #import "ADMNote.h"
 #import "ADMNotebooksViewController.h"
 #import "UIViewController+Navigation.h"
+#import "Settings.h"
+
 
 @interface AppDelegate ()
 
@@ -24,60 +26,65 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    //Create isntance of the stack
+    // Creamos una instancia del stack
     self.stack = [AGTCoreDataStack coreDataStackWithModelName:@"Model"];
     
-    [self dummyData];
     
-    //create fetch request
+    // Creamos datos chorras
+    //[self createDummyData];
+    
+    // Un fetchRequest
     NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ADMNotebook entityName]];
-    req.sortDescriptors =  @[[NSSortDescriptor
+    req.sortDescriptors = @[[NSSortDescriptor
                              sortDescriptorWithKey:ADMNotebookAttributes.name
                              ascending:YES
                              selector:@selector(caseInsensitiveCompare:)],
                             [NSSortDescriptor
                              sortDescriptorWithKey:ADMNotebookAttributes.modificationDate
-                                                          ascending:NO]]; //No ascending becuase we want the more recent first
-    
+                             ascending:NO]];
     req.fetchBatchSize = 20;
     
-    //fetch result controler
+    // FetchedResultsController
     NSFetchedResultsController *fc = [[NSFetchedResultsController alloc]
                                       initWithFetchRequest:req
                                       managedObjectContext:self.stack.context
                                       sectionNameKeyPath:nil
                                       cacheName:nil];
     
-    //creta e acontroler
-    ADMNotebooksViewController *nVC = [[ADMNotebooksViewController alloc]
-                                       initWithFetchedResultsController:fc style:UITableViewStylePlain];
-    
-
+    // Creamos el controlador
+    ADMNotebooksViewController *nVC = [[ADMNotebooksViewController alloc] initWithFetchedResultsController:fc style:UITableViewStylePlain];
     
     
-    //Categories: very util to expand and anvoid repetition of code
-    //it is a way to add methods to a class pre-existent
-
     
+    self.window = [[UIWindow alloc] initWithFrame:
+                   [[UIScreen mainScreen] bounds]];
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-   
     self.window.rootViewController = [nVC wrappedInNavigation];
+    
     [self.window makeKeyAndVisible];
-  
+    
+    
+    // Arranco el autosave
+    [self autoSave];
+    
     return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    
+    [self.stack saveWithErrorBlock:^(NSError *error) {
+        NSLog(@"Saving on resignActive: %@",error);
+    }];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [self.stack saveWithErrorBlock:^(NSError *error) {
+        NSLog(@"Saving on resignActive: %@",error);
+    }];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -162,6 +169,22 @@
     }];
     
     
+}
+
+-(void) autoSave{
+    
+    if (AUTO_SAVE) {
+        NSLog(@"Autoguardando");
+        [self.stack saveWithErrorBlock:^(NSError *error) {
+            NSLog(@"Error al autoguardar!");
+        }];
+        
+        // Pongo en mi "agenda" una nueva llamada a autoSave
+        [self performSelector:@selector(autoSave)
+                   withObject:nil
+                   afterDelay:AUTO_SAVE_DELAY];
+        
+    }
 }
 
 @end

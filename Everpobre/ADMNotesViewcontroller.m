@@ -11,6 +11,7 @@
 #import "ADMPhoto.h"
 #import "ADMNotebook.h"
 
+
 @interface ADMNotesViewcontroller ()
 @property (nonatomic,strong) ADMNotebook *notebook;
 @end
@@ -31,7 +32,22 @@
     
     [super viewDidLoad];
     
+    UIBarButtonItem *add = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewNote:)];
+    
+    self.navigationItem.rightBarButtonItem = add;
+    
 }
+
+-(void) addNewNote:(id) sender{
+    
+    [ADMNote noteWithName:@"New note"
+                              notebook:self.notebook
+                               context:self.notebook.managedObjectContext];
+    
+    
+}
+
+
 
 //MEthod that generates the cell
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -53,6 +69,16 @@
     return cell;
 }
 
+
+-(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if(editingStyle == UITableViewCellEditingStyleDelete){
+        
+        ADMNote *n = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+        [self.fetchedResultsController.managedObjectContext deleteObject:n];
+    }
+}
 
 
 @end

@@ -76,6 +76,7 @@
 		D391169F1AD81CA800BD1EE6 /* ADMNotesViewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADMNotesViewcontroller.m; sourceTree = "<group>"; };
 		D39116A11AD81FBE00BD1EE6 /* ADMPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADMPhoto.h; path = Everpobre/ADMPhoto.h; sourceTree = "<group>"; };
 		D39116A21AD81FBE00BD1EE6 /* ADMPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADMPhoto.m; path = Everpobre/ADMPhoto.m; sourceTree = "<group>"; };
+		D39116A41AD83EC900BD1EE6 /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +135,7 @@
 			children = (
 				D37D582B1AD47961006492F4 /* Info.plist */,
 				D37D582C1AD47961006492F4 /* main.m */,
+				D39116A41AD83EC900BD1EE6 /* Settings.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

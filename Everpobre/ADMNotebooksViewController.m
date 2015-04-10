@@ -8,6 +8,8 @@
 
 #import "ADMNotebooksViewController.h"
 #import "ADMNotebook.h"
+#import "ADMNotesViewcontroller.h"
+#import "ADMNote.h"
 
 @interface ADMNotebooksViewController ()
 
@@ -64,6 +66,34 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
     
 }
 
+#pragma mark - Table Delegate
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //Find out the notebook
+    ADMNotebook *n = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    //create a controler of notes
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ADMNote entityName]];
+    req.sortDescriptors =  @[[NSSortDescriptor
+                              sortDescriptorWithKey:ADMNoteAttributes.name
+                              ascending:YES
+                              selector:@selector(caseInsensitiveCompare:)],
+                             [NSSortDescriptor sortDescriptorWithKey:ADMNoteAttributes.modificationDate
+                                ascending:NO]]; //No ascending becuase we want the more recent first
+    
+    //Needs a predicate, becuase he need all the notes only from this notebook
+    req.predicate = [NSPredicate predicateWithFormat:@"notebook = %@",n];
+    
+    NSFetchedResultsController *fc =  [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:n.managedObjectContext sectionNameKeyPath:nil cacheName:nil ];
+    
+    ADMNotesViewcontroller *nVC = [[ADMNotesViewcontroller alloc]
+                                   initWithFetchedResultsController:fc
+                                   style:UITableViewStylePlain
+                                   notebook:n];
+    //make a push
+    [self.navigationController pushViewController:nVC animated:YES];
+
+}
+
 
 #pragma mark - Utils
 
@@ -71,7 +101,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UIBarButtonItem *add = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                          target:self
-                                                                         action:@selector(addNewNotebook:)];
+                                                                          action:@selector(addNewNotebook:)];
     
     self.navigationItem.rightBarButtonItem = add;
 }
